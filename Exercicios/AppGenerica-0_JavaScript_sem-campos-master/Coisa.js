@@ -1,4 +1,4 @@
 class Coisa {
 //Comment wdwv
-teste4
+teste5
 }
