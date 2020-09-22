@@ -1,4 +1,6 @@
 class Coisa {
-//Comment wdwv
-teste6
+
+    height;
+    width;
+
 }
