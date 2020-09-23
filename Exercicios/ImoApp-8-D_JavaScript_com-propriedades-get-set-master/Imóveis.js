@@ -17,7 +17,7 @@ class Imóveis {
 			if (imóvel.em(cidade))
 				imoveisIdentificados.push(imóvel);
 		}
-		return imoveisIdentificados.push(imóvel);
+		return imoveisIdentificados;
 		
 	}
 
