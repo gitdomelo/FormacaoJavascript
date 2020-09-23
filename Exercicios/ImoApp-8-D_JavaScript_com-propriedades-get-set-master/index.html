@@ -23,8 +23,25 @@
 			<header>
 				<h3>Intro · Uma App Imobiliária</h3>
 				<h4>Uma aplicação imobiliária "ImoApp"</h4>
+				
+				
 			</header>
 			<p>Esta app gere coleções de imóveis e de clientes.</p>
+			<section>
+				<p>Pesquisa Imóveis</p>
+				<label>Cidade:</label>
+				<input type="search" id="cidade">
+				<button type="button" onclick="window.imoApp.mostrarImóveis(window.imoApp.procurarImóvelEm(document.getElementById('cidade').value),'Imoveis')">Pesquisa Imoveis</button>
+					<table id="Imoveis">
+						<tr>
+							<td>Rua</td>
+							<td>Número</td>
+							<td>Cidade</td>
+							<td>Freguesia</td>
+							<td>Valor</td>
+						</tr>
+					</table>
+			</section>
 			<section>
 				<p>Nesta versão, foi acrescentada funcionalidade (<span class="quadro">funções</span> ou "métodos") à aplicação: é agora possível <span class="quadro">procurar</span> nas coleções de objetos.</p>
 				<ul>
