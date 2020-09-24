@@ -16,8 +16,9 @@
 		<script src="Freguesias.js"></script>
 		<script src="Envios.js"></script>
 		<script src="preparar.js"></script>
+		<script src="GUI.js"></script>
 	</head>
-	<body onload="preparar();window.imoApp = new ImoApp()">
+	<body onload="preparar();window.imoApp = new ImoApp(); window.GUI = new GUI()">
 		<h2>ImoApp-8-D_JavaScript_com-propriedades-get-set</h2>
 		<article id="intro">
 			<header>
@@ -31,7 +32,7 @@
 				<p>Pesquisa Imóveis</p>
 				<label>Cidade:</label>
 				<input type="search" id="cidade">
-				<button type="button" onclick="window.imoApp.mostrarImóveis(window.imoApp.procurarImóvelEm(document.getElementById('cidade').value),'Imoveis')">Pesquisa Imoveis</button>
+				<button type="button" onclick="window.GUI.mostrarImóveis(window.imoApp.procurarImóvelEm(document.getElementById('cidade').value),'Imoveis')">Pesquisa Imoveis</button>
 					<table id="Imoveis">
 						<tr>
 							<td>Rua</td>
