@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>
+			ImoApp-ES.Next-05__modules-só
+		</title>
+		<link rel="stylesheet" href="estilo.css" />
+		<meta charset="UTF-8">
+		<script type="module">
+			import { Visitante, Procura } from "./codificator.io.js";
+			window.imoApp = new Visitante().imoGUI.imoApp; // disponibiliza a app globalmente com o nome "visitante" (p.ex. na consola, para testá-la)
+			window.Procura = Procura; // tornar "visível" fora do Module
+		</script>
+		<script src="preparar.js"></script>
+	</head>
+
+	<body onload="preparar()">
+		<h2>ImoApp-ES.Next-05__modules-só</h2>
+		<article>
+			<header>
+				<h3>Intro</h3>
+			</header>
+			<p>
+				Esta versão demonstra a organização de ficheiros em diretórios e<span class="quadro">"modules"</span>, mas sem recorrer a namespaces.
+				"Namespaces" e "Modules" são duas maneiras de agrupar muito código fonte, mas é
+				<a href="https://www.typescriptlang.org/docs/handbook/namespaces-and-modules.html" target="_blank">desaconselhado misturar</a>.
+			</p>
+			<p>
+				Como esta aplicação baseia-se em "EcmaScript modules (ESModules)", pode <span class="quadro">executá-la com NodeJS</span>.
+				Para esse efeito foram acrescentados 2 ficheiros:
+			</p>
+			<ol>
+				<li>o ficheiro de configuração de NodeJS (<span class="quadro">package.json</span>)</li>
+				<li>um <span class="quadro">Executar.js</span> que serve de ponto de entrada para NodeJS (semelhante a main() em outras linguagens)</li>
+			</ol>
+		</article>
+		<article>
+			<header>
+				<h3>Procurar em coleções</h3>
+			</header>
+			<section id="botões">
+				<button id="baratos" value="100000">
+					Procurar imóveis baratos (< €100.000)<br />
+					<span class="info">O atributo "id" deste botão é "baratos"</span>
+				</button>
+				<button id="caros" value="100000">
+					Procurar imóveis caros (>= €100.000)<br />
+					<span class="info">O atributo "id" deste botão é "caros"</span>
+				</button>
+			</section>
+			<section id="consola">
+				<h5>Instruções de uso se preferir testar a app na consola</h5>
+				<p>Abre as ferramentas do programador (CTRL-SHIFT-I ou F12), para avaliar o código fonte. Poderá ainda colocar breakpoints.</p>
+				<p>Para testar esta app com um navegador, abre o html e executa na consola:</p>
+				<div class="copiável">
+					<code>imoApp.procurar(Procura("baratos", 90000))</code>
+					<code>imoApp.procurar(Procura("caros", 1000000))</code>
+				</div>
+			</section>
+			<section>
+				<h5>Node</h5>
+				<p>
+					Pode ainda testar esta app com Node, numa consola Windows (CTRL-R -> cmd).
+					Na consola, navega à pasta onde se encontra o ficheiro Executar.js e executa:
+				</p>
+				<code>node Executar.js</code>
+				<p>Este ficheiro efetuará uma procura, semelhante ao que é feita na consola do navegador.</p>
+			</section>
+		</article>
+		<article>
+			<header>
+				<h3>Imóveis</h3>
+			</header>
+			<table>
+				<thead>
+				<th>Cidade</th>
+				<th>Coordenadas</th>
+				<th>€</th>
+				</thead>
+				<tbody id="imóveis"></tbody>
+				<!-- resultados -->
+			</table>
+		</article>
+
+		<article id="tópicos">
+			<header>
+				<h3>Novos conceitos, palavras chave, síntaxe e/ou APIs de JavaScript abordados/introduzidos <span class="quadro">neste exemplo</span></h3>
+			</header>
+			<section id="conceitos">
+				<p>Conceitos</p>
+				<ul>
+					<li>Organização de código fonte em pastas</li>
+					<li>Agregação de classes em "namespaces"</li>
+					<li>Agregação de classes e/ou funções em "Modules"</li>
+					<li>MVC (separação de responsabilidades em "Model", "View" e "Controller")</li>
+					<li>Serviços vs entidades ("services vs entities")</li>
+					<li>Conceito de visitante da GUI da app (representa a ligação entre a página e a app)</li>
+					<li>Introdução da pasta 'servidor' para versões futuras da app, instalada num servidor e acessível pela rede</li>
+					<li>Centralização (opcional) de <span class="keyword">import</span>s e <span class="keyword">export</span>s</li>
+				</ul>
+			</section>
+			<section id="palavras">
+				<p>Palavras chave</p>
+				<ul>
+					<li>import</li>
+					<li>from</li>
+					<li>export</li>
+					<li>default (em módulos)</li>
+					<li>as</li>
+					<li>const (referências constantes a objetos ou valores constantes)</li>
+				</ul>
+			</section>
+			<section id="síntaxe">
+				<p>Síntaxe</p>
+				<ul>
+					<li>{} (aquando do uso de <span class="keyword">import</span>)</li>
+					<li>, (vírgula, aquando do uso de <span class="keyword">import</span>)</li>
+				</ul>
+			</section>
+			<section id="APIs">
+				<p>APIs ("Application Programming Interface")</p>
+				<ul>
+					<li>window. (tornar membros de módulos visíveis na página HTML)</li>
+					<li>document.onload</li>
+				</ul>
+			</section>
+		</article>
+
+	</body>
+
+</html>

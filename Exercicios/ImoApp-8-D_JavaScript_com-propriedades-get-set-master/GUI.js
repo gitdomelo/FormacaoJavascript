@@ -1,12 +1,15 @@
 class GUI {
 
-	constructor() {
+	constructor(imoApp) {
         
+        this.imoApp = imoApp;
        
     }
 
-    mostrarImóveis(imoveis,tableHtml)
+    mostrarImóveis(cidade,tableHtml)
 	{
+
+        var imoveis = this.imoApp.procurarImóvelEm(cidade);
 		var table_mostrar = document.getElementById(tableHtml);
 		//limpar tabela
 	

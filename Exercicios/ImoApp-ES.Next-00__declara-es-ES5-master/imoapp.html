@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			ImoApp-ES.Next-00__declarações-ES5
+		</title>
+		<link rel="stylesheet" href="estilo.css"/>
+		<meta charset="UTF-8">
+		<!-- Visitante ao site -->
+		<script src="./Visitante.js"></script>
+		<script src="./ImoGUI.js"></script>
+		<!-- O modelo da app "business objects" -->
+		<!-- Serviços da app -->
+		<script src="./ImoApp.js"></script>
+		<script src="./Procura.js"></script>
+		<script src="./Eventos.js"></script>
+		<!-- Entidades da app -->
+		<script src="./Imóvel.js"></script>
+		<script src="./Cliente.js"></script>
+		<script src="./Coordenadas.js"></script>
+		<script src="./Endereço.js"></script>
+		<script src="./CódigoPostal.js"></script>
+		<script src="preparar.js"></script>
+	</head>
+	<body onload="preparar();window.imoApp = new Visitante().imoGUI.imoApp">
+		<h2>ImoApp-ES.Next-00__declarações-ES5</h2>
+		<article id="intro">
+			<header>
+				<h3>Intro</h3>
+			</header>
+			<p>Demonstra programar com ES5. Não recorre à sintaxe de ES6 e seguintes (ES.Next)</p>
+			<p><span class="quadro">Classes são definidas como funções</span> com os métodos nos seus protótipos.</p>
+			<section id="GUI">
+				<h3>Nesta versão há <span class="quadro">interação entre a imoApp e a página web</span> (conhecida como a imoGUI da imoApp).</h3>
+				<p>Os resultados de procura na coleção de imóveis na imoApp serão visualizadas na tabela em baixo.</p>
+			</section>
+		</article>
+		<article id="procura">
+			<header>
+				<h3>Procurar em coleções</h3>
+			</header>
+			<section id="botões">
+				<p>
+					Esta página vem com <span class="quadro">botões</span> que permitem rapidamente testar a app (dispensa de dever preencher um formulário).
+				</p>
+				<button id="baratos" value="100000">
+					Procurar imóveis baratos (< €100.000)
+				</button>
+				<button id="caros" value="100000">
+					Procurar imóveis caros (>= €100.000)
+				</button>
+			</section>
+			<section id="consola">
+				<h5>Instruções de uso se preferir testar a app na consola</h5>
+				<div class="copiável">
+					<code>imoApp.procurar(Procura("baratos", 90000))</code>
+					<code>imoApp.procurar(Procura("caros", 1000000))</code>
+				</div>
+			</section>
+		</article>
+		<article>
+			<header>
+				<h3>Imóveis</h3>
+			</header>
+			<table>
+				<thead>
+				<th>Cidade</th>
+				<th>Coordenadas</th>
+				<th>€</th>
+				</thead>
+				<tbody id="imóveis"></tbody>
+				<!-- resultados -->
+			</table>
+		</article>
+
+		<article id="tópicos">
+			<header>
+				<h3>Novos conceitos, palavras chave, síntaxe e/ou APIs de JavaScript abordados/introduzidos <span class="quadro">neste exemplo</span></h3>
+			</header>
+			<section id="conceitos">
+				<p>Conceitos</p>
+				<ul>
+					<li>"Separation  of Concerns" (não misturar responsabilidades de classes)</li>
+					<li>GUI ("Graphical User Interfaces")</li>
+					<li>Simulação de dados da app (ver ImoApp.simular())</li>
+					<li>"Chaining" (invocação em série com a palavra chave <span class="keyword">this</span>)</li>
+					<li>"Listeners"</li>
+					<li>Registo de objetos terceiros ("business listeners") e a sua agregação em coleções</li>
+					<li>Objetos do tipo Evento, para avisar "listeners"</li>
+					<li>"overriding" (reescritura de métodos herdados)</li>
+					<li>Enumerações (ver Evento.js)</li>
+					<li>"HTML-ização" (semelhante a toString() )</li>
+					<li>Eventos na GUI, p.ex. "click"</li>
+					<li>Registo de "event listeners" em elementos da página HTML</li>
+					<li>Reagir a eventos na GUI</li>
+					<li>Avaliar os valores de eventos na GUI</li>
+					<li>Identificar os elementos alvos de eventos na GUI</li>
+				</ul>
+			</section>
+			<section id="palavras">
+				<p>Palavras chave</p>
+				<ul>
+					<li>for(;;)</li>
+					<li>for(... in ...) (iteração de membros)</li>
+					<li>instanceOf</li>
+					<li>continue</li>
+					<li>this[] (acesso aos membros dum objeto)</li>
+					<li>undefined</li>
+					<li>return this (para facilitar "method chaining")</li>
+					<li>switch</li>
+					<li>case</li>
+					<li>break</li>
+					<li>default (em switch)</li>
+				</ul>
+			</section>
+			<section id="síntaxe">
+				<p>Síntaxe</p>
+				<ul>
+					<li>|| (comparação de verdade)</li>
+					<li>++ (alternativa a "+1")</li>
+					<li>&lt; (comparação de valores)</li>
+					<li>Maiúsculas para objetos constantes</li>
+					<li>"" + "" (juntar Strings)</li>
+					<li>: (em switch ... case:)</li>
+				</ul>
+			</section>
+			<section id="APIs">
+				<p>APIs ("Application Programming Interface")</p>
+				<ul>
+					<li>Function</li>
+					<li>Function.bind()</li>
+					<li>String</li>
+					<li>Object.toString()</li>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model" target="_blank">DOM (Document Object Model)</a></li>
+					<li>document.getElementById()</li>
+					<li>document.createElement()</li>
+					<li>element.innerHTML</li>
+					<li>element.appendChild()</li>
+					<li>element.addEventListener</li>
+					<li>Event</li>
+					<li>Event.stopPropagation()</li>
+					<li>Event.currentTarget</li>
+					<li>console</li>
+					<li>console.log()</li>
+				</ul>
+			</section>
+		</article>
+
+	</body>
+</html>

@@ -1,0 +1,7 @@
+{
+   "type": "module",
+   "main": "Executar.js",
+   "scripts": {
+      "start": "node Executar.js"
+   }
+}

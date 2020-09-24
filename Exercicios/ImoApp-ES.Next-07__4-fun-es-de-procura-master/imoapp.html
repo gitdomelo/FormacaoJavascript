@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>
+			ImoApp-ES.Next-07__4-funções-de-procura
+		</title>
+		<link rel="stylesheet" href="estilo.css" />
+		<meta charset="UTF-8">
+		<script type="module">
+			import { Visitante, Coordenadas} from "./codificator.io.js";
+			window.imoApp = new Visitante().imoGUI.imoApp; // disponibiliza a app globalmente com o nome "visitante" (p.ex. na consola, para testá-la)
+			window.Coordenadas = Coordenadas;
+		</script>
+		<script src="preparar.js"></script>
+	</head>
+
+	<body onload="preparar()">
+		<h2>ImoApp-ES.Next-07__4-funções-de-procura</h2>
+		<article>
+			<header>
+				<h3>Intro</h3>
+			</header>
+			<p>Esta versão demonstra como procurar em coleções com <span class="quadro">4 funções de procura</span>.</p>
+			<p>
+				O propósito desta versão é demonstrar que, conforme uma app vai crescendo, aumentando o número de classes e os seus campos, em consequência a funcionalidade também irá crescendo.
+				Uma consequencia disso é que muitas classes terão muitas funções (métodos). Constatar-se-á que muitas dessas funções têm algoritmos semelhantes.
+				Em futuras versões, será introduzida uma abordagem diferente, que elimina a proliferação de tantas funções, contribuindo para código fonte mais legível e limpo.
+			</p>
+			<p>Esta versão é baseada em "modules" e vem <span class="quadro">preparada para NodeJS</span> com Executar.js + package.json.</p>
+		</article>
+		<article>
+			<header>
+				<h3>Procurar em coleções</h3>
+			</header>
+			<section id="botões">
+				<p>	Esta página vem com <span class="quadro">botões</span> que permitem rapidamente testar a app (dispensa de dever preencher um formulário).</p>
+				<button id="cidade" value="Lisboa">
+					Procurar imóveis em Lisboa<br />
+					<span class="info">&lt;button id="cidade" value="Lisboa"></span>
+				</button>
+				<button id="valorMáximo" value="100000">
+					... < €100.000<br />
+					<span class="info">&lt;button id="valorMáximo" value="100000"></span>
+				</button>
+				<button id="cidadeValorMínimo" value="Porto,100000">
+					...no Porto e > €100.000<br />
+					<span class="info">&lt;button id="cidade" value="Porto,100000"></span>
+				</button>
+				<button id="distância" value="10,38.71,-9.16">
+					...na área de 10km das coordenadas  (38.71, -9.16) <br />
+					<span class="info">&lt;button id="distância" value="10,38.71,-9.16"></span>
+				</button>
+			</section>
+			<section id="consola">
+				<h5>Instruções de uso se preferir testar a app na consola</h5>
+				<p>Abre as ferramentas do programador (CTRL-SHIFT-I ou F12), para avaliar o código fonte. Poderá ainda colocar breakpoints.</p>
+				<p>Para testar esta app com um navegador, abre o html e executa na consola:</p>
+				<div class="copiável">
+					<code>this.imoApp.procurarPorCidade("Porto")</code>
+					<code>this.imoApp.procurarPorValorMáximo(85000)</code>
+					<code>this.imoApp.procurarPorCidadeEValorMínimo("Porto", 1000000)</code>
+					<code>this.imoApp.procurarPorDistância(new Coordenadas(41.16,-8.63), 10) // procurar numa área de 10km à volta das coordenadas</code>
+				</div>
+			</section>
+			<section>
+				<h5>Node</h5>
+				<p>
+					Pode ainda testar esta app com Node, numa consola Windows (CTRL-R -> cmd).
+					Na consola, navega à pasta onde se encontra o ficheiro Executar.js e executa:
+				</p>
+				<code>node Executar.js</code>
+				<p>Este ficheiro efetuará uma procura, semelhante ao que é feita na consola do navegador.</p>
+			</section>
+		</article>
+		<article>
+			<header>
+				<h3>Imóveis</h3>
+			</header>
+			<table>
+				<thead>
+				<th>Cidade</th>
+				<th>Coordenadas</th>
+				<th>€</th>
+				</thead>
+				<tbody id="imóveis"></tbody>
+				<!-- resultados -->
+			</table>
+		</article>
+
+		<article id="tópicos">
+			<header>
+				<h3>Novos conceitos, palavras chave, síntaxe e/ou APIs de JavaScript abordados/introduzidos <span class="quadro">neste exemplo</span></h3>
+			</header>
+			<section id="conceitos">
+				<p>Conceitos</p>
+				<ul>
+					<li>Aumento da funcionalidade de procura</li>
+					<li>Conversão entre quilómetros e coordenadas</li>
+					<li>Membros numéricos estáticos de classes</li>
+				</ul>
+			</section>
+			<section id="palavras">
+				<p>Palavras chave</p>
+				<ul>
+					<li>const (em iterações "for")</li>
+					<li>of (acesso a itens de uma coleção)</li>
+				</ul>
+			</section>
+			<section id="síntaxe">
+				<p>Síntaxe</p>
+				<ul>
+					<li>&& (comparação de verdade)</li>
+					<li>>= (maior ou igual a)</li>
+					<li>* (multiplicação)</li>
+					<li>/ (divisão)</li>
+					<li><span class="keyword">var</span> [...] ("destructuring")</li>
+				</ul>
+			</section>
+			<section id="APIs">
+				<p>APIs ("Application Programming Interface")</p>
+				<ul>
+					<li>button.value</li>
+					<li>Math.abs()</li>
+					<li>String.split()</li>
+				</ul>
+			</section>
+		</article>
+
+	</body>
+
+</html>
