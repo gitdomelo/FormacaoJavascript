@@ -1,4 +1,4 @@
-import {  Evento, Coordenadas } from "../../../codificator.io.js";
+import {  Evento, Coordenadas,Procura } from "../../../codificator.io.js";
 
 export default class ImoGUI {
 
@@ -6,12 +6,25 @@ export default class ImoGUI {
 		this.imoApp = imoApp;
 		this.imoApp.registar(this); // registar-se para ser avisado aquando de alterações na imobiliária
 		this.imóveis = document.getElementById("imóveis");
-		document.getElementById("cidade").addEventListener("click", this.procurarPorCidade.bind(this), true); // true ==> "capturing phase" porque o botão tem elementos HTML descendentes
+		document.getElementById("cidade").addEventListener("click", this.procurarPor.bind(this), true); // true ==> "capturing phase" porque o botão tem elementos HTML descendentes
+		document.getElementById("valorMáximo").addEventListener("click", this.procurarPor.bind(this), true); 
+		document.getElementById("cidadeValorMínimo").addEventListener("click", this.procurarPor.bind(this), true);
+		document.getElementById("distância").addEventListener("click", this.procurarPor.bind(this), true);
+	/*
+		/*	document.getElementById("cidade").addEventListener("click", this.procurarPorCidade.bind(this), true); // true ==> "capturing phase" porque o botão tem elementos HTML descendentes
 		document.getElementById("valorMáximo").addEventListener("click", this.procurarPorValorMáximo.bind(this), true); 
 		document.getElementById("cidadeValorMínimo").addEventListener("click", this.procurarPorCidadeEValorMínimo.bind(this), true);
 		document.getElementById("distância").addEventListener("click", this.procurarPorDistância.bind(this), true);
+	*/
 	}
 
+	procurarPor(clique) {
+		clique.stopPropagation();
+    var botão = clique.currentTarget;
+	this.imoApp.procurar((Procura(botão.id, botão.value)));
+	}
+
+	/*
 	procurarPorCidade(clique) {
 		clique.stopPropagation();
 		this.imoApp.procurarPorCidade(clique.currentTarget.value);
@@ -34,6 +47,8 @@ export default class ImoGUI {
 		var centro = new Coordenadas(x, y);
 		this.imoApp.procurarPorDistância(centro, km);
 	}
+
+	*/
 
 	avisar(evento) {
 		switch (evento.tipo) {

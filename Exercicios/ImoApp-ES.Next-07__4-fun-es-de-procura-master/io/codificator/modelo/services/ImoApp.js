@@ -43,6 +43,18 @@ export default class ImoApp {
 		this.imóveis.push(imóvel);
 	}
 
+	procuraPor(comparar)
+	{
+
+       this.encontrados = []; // reset
+		for (const imóvel of this.imóveis)
+			if (ccomparar(imóvel))
+				this.encontrados.push(imóvel);
+		this.avisar(new Evento(Evento.IMÓVEIS_ENCONTRADOS, this.encontrados));
+
+	}
+
+	/*
 	procurarPorCidade(cidade) {
 		this.encontrados = []; // reset
 		for (const imóvel of this.imóveis)
@@ -74,6 +86,7 @@ export default class ImoApp {
 				this.encontrados.push(imóvel);
 		this.avisar(new Evento(Evento.IMÓVEIS_ENCONTRADOS, this.encontrados));
 	}
+	*/
 
 	avisar(evento) {
 		for (var i = 0; i < this.terceiros.length; i++)
