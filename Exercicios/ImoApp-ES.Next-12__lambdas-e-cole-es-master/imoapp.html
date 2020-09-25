@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>ImoApp-ES.Next-12__lambdas-e-coleções</title>
+		<link rel="stylesheet" href="estilo.css" />
+		<meta charset="UTF-8">
+		<script type="module">
+			import { Visitante } from "./codificator.io.js";
+			window.imoApp= new Visitante().imoGUI.imoApp; // disponibiliza a app globalmente sob o nome "visitante" (p.ex. na consola, para testá-la)
+		</script>
+	</head>
+
+	<body>
+		<h2>ImoApp-ES.Next-12__lambdas-e-coleções</h2>
+		<article>
+			<header>
+				<h3>Intro</h3>
+			</header>
+			<p>Esta versão demonstra como procurar em coleções com a sintaxe lambda ("arrow functions").</p>
+			<p>Recorre a <span class="quadro">funcionalidade específica das coleções ES.Next</span>, que facilita a procura, a filtragem e a redução.</p>
+			<p>A app vem preparada para NodeJS com package.json e Executar.js</>
+		</article>
+		<article>
+			<header>
+				<h3>Procurar em coleções</h3>
+			</header>
+			<section id="botões">
+				<p>	Esta página vem com <span class="quadro">botões</span> que permitem rapidamente testar a app (dispensa de dever preencher um formulário).</p>
+				<button id="cidade" value="Lisboa,,">
+					Procurar imóveis em Lisboa<br />
+					<span class="info">&lt;button id="cidade" value="Lisboa,,"></span>
+				</button>
+				<button id="valorMáximo" value=",100000,">
+					Procurar imóveis < €100.000<br />
+					<span class="info">&lt;button id="valorMáximo" value=",100000,"></span>
+				</button>
+				<button id="cidadeValorMínimo" value="Porto,100000,false">
+					Procurar imóveis no Porto e > €100.000<br />
+					<span class="info">&lt;button id="cidade" value="Porto,100000,false"></span>
+				</button>
+				<button id="distância" value="10,38.71,-9.16">
+					Procurar imóveis na área de 10km das coordenadas  (38.71, -9.16) <br />
+					<span class="info">&lt;button id="distância" value="10,38.71,-9.16"></span>
+				</button>
+			</section>
+		</article>
+		<article>
+			<header>
+				<h3>Imóveis</h3>
+			</header>
+			<table>
+				<thead>
+				<th>Cidade</th>
+				<th>Coordenadas</th>
+				<th>€</th>
+				</thead>
+				<tbody id="imóveis"></tbody>
+				<!-- resultados -->
+			</table>
+		</article>
+
+		<article id="tópicos">
+			<header>
+				<h3>Novos conceitos, palavras chave, síntaxe e/ou APIs de JavaScript abordados/introduzidos <span class="quadro">neste exemplo</span></h3>
+			</header>
+			<section id="conceitos">
+				<p>Conceitos</p>
+				<ul>
+					<li>"arrow functions" como variáveis</li>
+					<li>Introdução do termo "predicado": uma função  utilizado aquando de filtragem que obrigatoriamente devolve um "boolean"</li>
+				</ul>
+			</section>
+			<section id="palavras">
+				<p>Palavras chave</p>
+				<ul>
+					<li></li>
+				</ul>
+			</section>
+			<section id="síntaxe">
+				<p>Síntaxe</p>
+				<ul>
+					<li><span class="keyword">var</span> p = () => {} (atribuição de "arrow functions" a uma variável)</li>
+				</ul>
+			</section>
+			<section id="APIs">
+				<p>APIs ("Application Programming Interface")</p>
+				<ul>
+					<li>Array.filter()</li>
+				</ul>
+			</section>
+		</article>
+
+	</body>
+
+</html>
