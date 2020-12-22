@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>ImoWebApp-ES.Next_09__webpacked</title>
+		<link rel="stylesheet" href="estilo.css" />
+		<meta charset="UTF-8">
+		<script type="module" src="imowebapp.js">// versão webpack</script>
+		<script src="preparar.js"></script>
+	</head>
+
+	<body onload="preparar();">
+		<h2>ImoWebApp-ES.Next_09__webpacked</h2>
+		<article id="intro">
+			<header>
+				<h3>Intro · ImoWebApp</h3>
+				<h4>Versão distribuída da ImoApp</h4>
+			</header>
+			<p>	Esta versão é igual à anterior, mas o JavaScript no navegador foi <span class="quadro">comprimido</span> por Webpack.</p>
+			<p>
+				Webpack á uma app, também escrita em JavaScript, capaz de "transpilar" JavaScript existente em JavaScript mais conciso e,
+				se desejado, mais difícil de interpretar e, em consequência, copiar.</p>
+			<code>
+				// Para lançar a webapp, execute na consola, no diretório do ficheiro Executar.js:
+			</code>
+			<code>
+				node Executar.js
+			</code>
+			<p><a href="http://localhost:8888/imoapp.html">Visite a homepage</a> ou teste a app requisitando <a
+					href="chocolate.html">uma página não existente</a>.</p>
+			<code>
+				// Para invocar webpack, instala-a com npm e executa na mesma pasta da app:
+			</code>
+			<code>
+				webpack --config webpack.config.cjs --no-colors
+			</code>
+			<p>
+				Nota que nesta versão, apenas o JavaScript utilizado pelo navegador é reduzido com WebPack.
+			</p>
+		</article>
+		<article id="procura">
+			<header>
+				<h3>Procurar em coleções</h3>
+				<p>Utiliza os botões para executar procura predefinidas.</p>
+			</header>
+			<section id="botões">
+				<p>
+					Esta página vem com <span class="quadro">botões</span> que permitem rapidamente testar a app (dispensa
+					de dever preencher um formulário).
+				</p>
+				<button id="inexistentes" value="Paris,100000,false">
+					Procurar <span class="quadro">imóveis que não existem</span> (> €100000 em Paris)<br />
+					<span class="info">&lt;button id="inexistentes" value="Paris,100000,false"></span>
+				</button>
+				<button id="cidade" value="Lisboa,,">
+					Procurar imóveis em Lisboa<br />
+					<span class="info">&lt;button id="cidade" value="Lisboa,,"></span>
+				</button>
+				<button id="valorMáximo" value=",100000,">
+					Procurar imóveis &lt; €100.000<br />
+					<span class="info">&lt;button id="valorMáximo" value=",100000,"></span>
+				</button>
+				<button id="cidadeValorMínimo" value="Porto,100000,false">
+					Procurar imóveis no Porto e > €100.000<br />
+					<span class="info">&lt;button id="cidade" value="Porto,100000,false"></span>
+				</button>
+			</section>
+			<section id="consola">
+				<p>Pode ainda interagir com a imoApp <span class="quadro">na consola</span> do navegador.</p>
+				<div class="copiável">
+					<code>// Para utilizar a imoApp na consola do navegador, p.ex. executar:</code>
+					<code>await imoApp.procurar(new Predicado(["Lisboa", 100000, true]))</code>
+					<code>await imoApp.procurar(new Predicado(["Porto", 100000, false]))</code>
+				</div>
+			</section>
+		</article>
+		<article id="resultados">
+			<header>
+				<h3>Imóveis encontrados</h3>
+			</header>
+			<table>
+				<thead>
+				<th>Cidade</th>
+				<th>Coordenadas</th>
+				<th>€</th>
+				</thead>
+				<tbody id="imóveis"></tbody>
+				<!-- resultados -->
+			</table>
+		</article>
+
+		<article id="tópicos">
+			<header>
+				<h3>Novos conceitos, palavras chave, síntaxe e/ou APIs de JavaScript abordados/introduzidos <span
+						class="quadro">neste exemplo</span></h3>
+			</header>
+			<section id="conceitos">
+				<p>Conceitos</p>
+				<ul>
+					<li>Instalação de extra bibliotecas com npm</li>
+					<li>Transpilação</li>
+					<li>Compressão</li>
+				</ul>
+			</section>
+			<section id="APIs">
+				<p>APIs ("Application Programming Interface") </p>
+				<ul>
+					<li><a href="https://www.npmjs.com/">NPM</a> é uma ferramenta de instalação de bibliotecas suplementares, a serem utilizadas com Node</li>
+					<li><a href="https://webpack.js.org/">Webpack</a> (é uma biblioteca e também uma app executável para a redução ("pack") do tamanho de JavaScript)</li>
+					<li><a href="https://babeljs.io/">Babel</a> (é uma biblioteca e também uma app executável para a "transpilação" entre versões de JavaScript)</li>
+					<li><a href="https://www.typescriptlang.org/">TypeScript</a> (é uma linguagem, biblioteca e um compilador também capaz da "transpilação")</li>
+				</ul>
+			</section>
+			<section id="palavras">
+				<p>Palavras chave</p>
+			</section>
+			<section id="síntaxe">
+				<p>Síntaxe</p>
+			</section>
+		</article>
+
+	</body>
+
+</html>

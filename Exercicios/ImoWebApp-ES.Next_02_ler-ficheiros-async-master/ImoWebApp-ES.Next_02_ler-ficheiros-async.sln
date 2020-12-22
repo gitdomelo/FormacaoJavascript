@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "ImoWebApp-ES.Next_02_ler-ficheiros-async", "ImoWebApp-ES.Next_02_ler-ficheiros-async.njsproj", "{A23220C4-2876-4E24-A747-81DBBD8A7D40}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A23220C4-2876-4E24-A747-81DBBD8A7D40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A23220C4-2876-4E24-A747-81DBBD8A7D40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A23220C4-2876-4E24-A747-81DBBD8A7D40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A23220C4-2876-4E24-A747-81DBBD8A7D40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94298223-E27F-491A-8B3B-964A9B12A5EC}
+	EndGlobalSection
+EndGlobal

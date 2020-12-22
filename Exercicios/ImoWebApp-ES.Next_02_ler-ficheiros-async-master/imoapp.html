@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>ImoWebApp-ES.Next_02_ler-ficheiros-async</title>
+		<link rel="stylesheet" href="estilo.css" />
+		<meta charset="UTF-8">
+		<script type="module">
+			import { Visitante } from "./codificator.io.js";
+			window.imoApp= new Visitante().imoGUI.imoApp; // disponibiliza a app globalmente sob o nome "visitante" (p.ex. na consola, para testá-la)
+		</script>
+	</head>
+
+	<body>
+		<h2>ImoWebApp-ES.Next_02_ler-ficheiros-async</h2>
+		<article>
+			<header>
+				<h3>Intro · ImoWebApp · Versão distribuída da ImoApp</h3>
+			</header>
+			<p>Esta app e a versão web de ImoApp: recorre às livrarias "http" e "fs" de NodeJS para lançar um servidor web e servir páginas HTML, CSS e JS.</p>
+			<p>Nesta versão, a webapp carrega os ficheiros do disco com <span class="quadro">"promises" da livraria "fs"</span> de NodeJS.</p>
+			<code>
+				// Executar na consola, no diretório do ficheiro Executar.js:
+			</code>
+			<code>
+				> node Executar.js
+			</code>
+			<p>Pode ainda fazer o debugging desta webapp, p.ex. com Visual Studio Code: abrir o "folder", colocar breakpoints no código fonte e carregar em F5.</p>
+		</article>
+		<article>
+			<header>
+				<h3>Procurar em coleções</h3>
+				<p>NOTA: nesta versão a GUI ainda interage com <span>uma instância da ImoApp no navegador</span> (apesar de também haver uma instância no servidor).</p>
+			</header>
+			<section id="botões">
+				<p>Esta página vem com botões que permitem rapidamente testar a app (dispensa de dever preencher um formulário).</p>
+				<button id="cidade" value="Lisboa,,">
+					Procurar imóveis em Lisboa<br />
+					<span class="info">&lt;button id="cidade" value="Lisboa,,"></span>
+				</button>
+				<button id="valorMáximo" value=",100000,">
+					Procurar imóveis < €100.000<br />
+					<span class="info">&lt;button id="valorMáximo" value=",100000,"></span>
+				</button>
+				<button id="cidadeValorMínimo" value="Porto,100000,false">
+					Procurar imóveis no Porto e > €100.000<br />
+					<span class="info">&lt;button id="cidade" value="Porto,100000,false"></span>
+				</button>
+				<p>O botão seguinte permite procurar imóveis à volta de certas coordenadas.</p>
+				<button id="distância" value="10,38.71,-9.16">
+					Procurar imóveis na área de 10km das coordenadas  (38.71, -9.16) <br />
+					<span class="info">&lt;button id="distância" value="10,38.71,-9.16"></span>
+				</button>
+			</section>
+		</article>
+		<article>
+			<header>
+				<h3>Imóveis encontrados</h3>
+			</header>
+			<table>
+				<thead>
+				<th>Cidade</th>
+				<th>Coordenadas</th>
+				<th>€</th>
+				</thead>
+				<tbody id="imóveis"></tbody>
+				<!-- resultados -->
+			</table>
+		</article>
+
+		<article id="tópicos">
+			<header>
+				<h3>Novos conceitos, palavras chave, síntaxe e/ou APIs de JavaScript abordados/introduzidos <span class="quadro">neste exemplo</span></h3>
+			</header>
+			<section id="conceitos">
+				<p>Conceitos</p>
+				<ul>
+					<li>Promise API como alternativa a "event based programming" (<a href="http://callbackhell.com" target="_blank">callback hell</a>)</li>
+					<li>Execução síncrona vs execução assíncrona (em paralelo)</li>
+					<li>Execução bloqueada (com <span class="keyword">await</span>) vs com "event listener" (com Promise.then())</li>
+				</ul>
+			</section>
+			<section id="APIs">
+				<p>APIs ("Application Programming Interface")</p>
+				<ul>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">Promise</a></li>
+					<li>Promise.then() (alternativa a <span class="keyword">await</span>)</li>
+				</ul>
+			</section>
+			<section id="palavras">
+				<p>Palavras chave</p>
+				<ul>
+					<li>async</li>
+					<li>await</li>
+				</ul>
+			</section>
+			<section id="síntaxe">
+				<p>Síntaxe</p>
+				<ul>
+					<li><span class="keyword">async function</span> (obrigatório quando a função contém <span class="keyword">await</span>)</li>
+				</ul>
+			</section>
+		</article>
+
+	</body>
+</html>

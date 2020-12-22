@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>ImoWebApp-ES.Next_04__POST-com-eventos	</title>
+		<link rel="stylesheet" href="estilo.css" />
+		<meta charset="UTF-8">
+		<script type="module">
+			import { Visitante } from "./codificator.io.js";
+			window.imoApp= new Visitante().imoGUI.imoApp; // disponibiliza a app globalmente sob o nome "visitante" (p.ex. na consola, para testá-la)
+		</script>
+	</head>
+
+	<body>
+		<h2>ImoWebApp-ES.Next_04__POST-com-eventos</h2>
+		<article>
+			<header>
+				<h3>Intro · ImoWebApp · Versão distribuída da ImoApp</h3>
+			</header>
+			<p>
+				Recorre às livrarias "http" e "fs" de NodeJS para lançar um servidor web e servir páginas HTML, CSS e JS.
+				A webapp <span>distingue entre pedidos GET ou POST</span> para poder servir páginas resp. objetos.
+			</p>
+			<p>Nesta versão a procura de imóveis é iniciada no navegador e executada no servidor. A comunicação entre o navegador e o servidor é feita com <span class="quadro">objetos JSON</span>.</p>
+			<code>
+				// Executar na consola, no diretório do ficheiro Executar.js:
+			</code>
+			<code>
+				> node Executar.js
+			</code>
+			<p>Depois <a href="http://localhost:8888/imoapp.html">visitar a página</a> com um navegador.</p>
+		</article>
+		<article>
+			<header>
+				<h3>Procurar em coleções</h3>
+				<p>
+					NOTA: nesta versão a GUI <span class="quadro"> interage com um "stub" da ImoApp</span> no navegador.
+					O "stub" é uma instância de uma <span class="keyword">class</span> que invocará a imoApp no servidor com os critérios da procura.
+					Um "stub" pode ser considerado um "representante" local de um objeto remoto (num servidor, por isso, habitualmente chamado um 'serviço').
+				</p>
+			</header>
+			<section>
+				<p>Esta página vem com botões que permitem rapidamente testar a app (dispensa de dever preencher um formulário).</p>
+				<button id="cidade" value="Lisboa,,">
+					Procurar imóveis em Lisboa<br />
+					<span class="info">&lt;button id="cidade" value="Lisboa,,"></span>
+				</button>
+				<button id="valorMáximo" value=",100000,">
+					Procurar imóveis &lt; €100.000<br />
+					<span class="info">&lt;button id="valorMáximo" value=",100000,"></span>
+				</button>
+				<button id="cidadeValorMínimo" value="Porto,100000,false">
+					Procurar imóveis no Porto e > €100.000<br />
+					<span class="info">&lt;button id="cidade" value="Porto,100000,false"></span>
+				</button>
+			</section>
+		</article>
+		<article>
+			<header>
+				<h3>Imóveis encontrados</h3>
+			</header>
+			<table>
+				<thead>
+				<th>Cidade</th>
+				<th>Coordenadas</th>
+				<th>€</th>
+				</thead>
+				<tbody id="imóveis"></tbody>
+				<!-- resultados -->
+			</table>
+		</article>
+
+		<article id="tópicos">
+			<header>
+				<h3>Novos conceitos, palavras chave, síntaxe e/ou APIs de JavaScript abordados/introduzidos <span class="quadro">neste exemplo</span></h3>
+			</header>
+			<section id="conceitos">
+				<p>Conceitos</p>
+				<ul>
+					<li>AJAX (arquitetura de comunicação navegador ↔ servidor)</li>
+					<li>Serialização (ou "marshalling") e deserialização (ou "unmarshalling") </li>
+					<li>JSON apenas serializa campos (não serializa métodos de objetos, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank">nem certos tipos de campos</a>)</li>
+					<li>GET vs POST (em HTTP)</li>
+					<li>Serialização de objetos predicados</li>
+					<li>Serialização de "Arrays" de "Business Objects" (resultados de procuras)</li>
+					<li>"Business event listeners" no servidor (semelhante à GUI)</li>
+				</ul>
+			</section>
+			<section id="APIs">
+				<p>APIs ("Application Programming Interface") no <span class="quadro">navegador</span></p>
+				<ul>
+					<li>JSON</li>
+					<li>JSON.stringify() (conversão de objetos em Strings)</li>
+					<li>JSON.parse() (conversão de Strings em objetos )</li>
+					<li>XMLHttpRequest</li>
+					<li>XMLHttpRequest.onload (registo de "event listeners")</li>
+					<li>XMLHttpRequest.open()</li>
+					<li>XMLHttpRequest.send()</li>
+					<li>Object.values() (conversão de objetos em "arrays")</li>
+				</ul>
+				<p>APIs no<span class="quadro">servidor</span></p>
+				<ul>
+					<li><a href="https://nodejs.org/dist/latest-v12.x/docs/api/buffer.html" target="_blank">Buffer</a> (juntar "bytes" provenientes de pedidos por HTTP)</li>
+					<li>Event.on() (herdado por Readable)</li>
+					<li>Readable.on() (leitura de canais de comunicação em pedidos POST)</li>
+					<li>Readable.end() (fim da leitura)</li>
+					<li>Array.push() (para juntar bytes)</li>
+					<li>Buffer.concat() (para juntar bytes de vários  "arrays" de bytes)</li>
+					<li>Promise.resolve() (utilização com "event listening")</li>
+				</ul>
+				<p>Nota: <a href="https://nodejs.org/dist/latest-v12.x/docs/api/stream.html#stream_stream" target="_blank">"All streams are instances of EventEmitter."</a></p>
+			</section>
+			<section id="palavras">
+				<p>Palavras chave</p>
+				<ul>
+					<li>static (em declarações com class)</li>
+				</ul>
+			</section>
+			<section id="síntaxe">
+				<p>Síntaxe</p>
+				<ul>
+					<li></li>
+				</ul>
+			</section>
+		</article>
+
+	</body>
+</html>

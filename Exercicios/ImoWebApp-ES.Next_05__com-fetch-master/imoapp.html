@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>ImoWebApp-ES.Next_05__com-fetch</title>
+		<link rel="stylesheet" href="estilo.css" />
+		<meta charset="UTF-8">
+		<script type="module">
+			import { Visitante } from "./codificator.io.js";
+			window.imoApp= new Visitante().imoGUI.imoApp; // disponibiliza a app globalmente sob o nome "visitante" (p.ex. na consola, para testá-la)
+		</script>
+	</head>
+
+	<body>
+		<h2>ImoWebApp-ES.Next_05__com-fetch</h2>
+		<article>
+			<header>
+				<h3>Intro · ImoWebApp · Versão distribuída da ImoApp</h3>
+			</header>
+			<p>
+				Recorre às livrarias "http" e "fs" de NodeJS para lançar um servidor web e servir páginas HTML, CSS e JS.
+				A webapp <span>distingue entre pedidos GET ou POST</span> para poder servir páginas resp. objetos.
+				Nesta versão a procura de imóveis é iniciada no navegador e executada no servidor.
+				A comunicação entre o navegador e o servidor é feita com <span>objetos JSON</span>.
+			</p>
+			<p>
+				Nesta versão o XMLHttpRequest API foi substituído pelo <span class="quadro">Fetch API</span>.
+			</p>
+			<code>
+				// Executar na consola, no diretório do ficheiro Executar.js:
+			</code>
+			<code>
+				> node Executar.js
+			</code>
+			<p>Depois <a href="http://localhost:8888/imoapp.html">visitar a página</a> com um navegador.</p>
+		</article>
+		<article>
+			<header>
+				<h3>Procurar em coleções</h3>
+				<p>
+					A GUI  interage com <span>um "stub" da ImoApp</span> no navegador.
+					O "stub" é uma class que invocará a imoApp no servidor com os critérios da procura.
+				</p>
+			</header>
+			<section>
+				<p>Esta página vem com botões que permitem rapidamente testar a app (dispensa de dever preencher um formulário).</p>
+				<button id="cidade" value="Lisboa,,">
+					Procurar imóveis em Lisboa<br />
+					<span class="info">&lt;button id="cidade" value="Lisboa,,"></span>
+				</button>
+				<button id="valorMáximo" value=",100000,">
+					Procurar imóveis &lt; €100.000<br />
+					<span class="info">&lt;button id="valorMáximo" value=",100000,"></span>
+				</button>
+				<button id="cidadeValorMínimo" value="Porto,100000,false">
+					Procurar imóveis no Porto e > €100.000<br />
+					<span class="info">&lt;button id="cidade" value="Porto,100000,false"></span>
+				</button>
+			</section>
+		</article>
+		<article>
+			<header>
+				<h3>Imóveis encontrados</h3>
+			</header>
+			<table>
+				<thead>
+				<th>Cidade</th>
+				<th>Coordenadas</th>
+				<th>€</th>
+				</thead>
+				<tbody id="imóveis"></tbody>
+				<!-- resultados -->
+			</table>
+		</article>
+
+		<article id="tópicos">
+			<header>
+				<h3>Novos conceitos, palavras chave, síntaxe e/ou APIs de JavaScript abordados/introduzidos <span class="quadro">neste exemplo</span></h3>
+			</header>
+			<section id="conceitos">
+				<p>Conceitos</p>
+				<ul>
+					<li>Bibliotecas WEB evoluem e podem ser substituídas por versões melhores (p.ex. XMLHttpRequest → fetch())</li>
+					<li>XMLHttpRequest é "event based"</li>
+					<li>Fetch API é "Promise based"</li>
+				</ul>
+			</section>
+			<section id="APIs">
+				<p>APIs ("Application Programming Interface") no navegador</p>
+				<ul>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch" target="_blank">fetch()</a> (devolve uma "Promise")</li>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Response" target="_blank">Response</a> (resultado de fetch() )</li>
+					<li>Response.json() (leitura do seu conteúdo, também com uma "Promise")</li>
+				</ul>
+				<p>APIs no servidor</p>
+				<ul>
+					<li></li>
+				</ul>
+			</section>
+			<section id="palavras">
+				<p>Palavras chave</p>
+				<ul>
+					<li></li>
+				</ul>
+			</section>
+			<section id="síntaxe">
+				<p>Síntaxe</p>
+				<ul>
+					<li></li>
+				</ul>
+			</section>
+		</article>
+
+	</body>
+</html>

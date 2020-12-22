@@ -24,6 +24,8 @@ export default class Imóvel {
 		return linha;
 	}
 
+	
+
 };
 
 

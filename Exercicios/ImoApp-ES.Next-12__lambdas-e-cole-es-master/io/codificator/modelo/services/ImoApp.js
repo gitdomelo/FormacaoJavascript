@@ -69,6 +69,8 @@ export default class ImoApp {
 		this.terceiros.push(terceiro);
 	}
 
+	
+
 };
 
 

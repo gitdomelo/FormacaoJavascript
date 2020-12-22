@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>
+			ImoWebApp-ES.Next_08__com-catch-em-POST
+		</title>
+		<link rel="stylesheet" href="estilo.css" />
+		<meta charset="UTF-8">
+		<script type="module">
+			import { Visitante, Predicado } from "./codificator.io.js";
+			window.imoApp = new Visitante().imoGUI.imoApp; // disponibiliza a app globalmente sob o nome "visitante" (p.ex. na consola, para testá-la)
+			window.Predicado = Predicado; // disponibiliza a class Predicado para poder instanciá-la na consola
+		</script>
+		<script src="preparar.js"></script>
+	</head>
+
+	<body onload="preparar()">
+		<h2>ImoWebApp-ES.Next_08__com-catch-em-POST</h2>
+		<article id="intro">
+			<header>
+				<h3>Intro · ImoWebApp</h3>
+				<h4>Versão distribuída da ImoApp</h4>
+			</header>
+			<p>
+				Esta versão informa o utilizador que <span class="quadro">certas procuras não encontram imóveis</span>.
+				Se a imoApp (no servidor) não produzir um resultado da procura, lançará ("<span class="keyword">throw</span>") uma instância da
+				class <span class="quadro">Erro</span>, que será serializada e enviada ao navegador.
+			</p>
+			<ul>
+				<li>Recorre às livrarias <a href="https://nodejs.org/dist/latest-v12.x/docs/api/http.html" target="_blank">"HTTP"</a>
+					e <a href="https://nodejs.org/dist/latest-v12.x/docs/api/fs.html" target="_blank">"FS (file system)"</a> de NodeJS para lançar um servidor web e servir <span>páginas HTML, CSS, JS, PNG e JSON.</span>
+				</li>
+				<li>A webapp distingue entre pedidos <span class="quadro">GET ou POST</span> para poder <span>servir resp. páginas ou objetos</span>
+					(imóveis).</li>
+				<li>A procura de imóveis é iniciada no navegador e executada no servidor.</li>
+				<li>A comunicação entre o navegador e o servidor é feita com objetos <span>JSON</span>.</li>
+			</ul>
+			<code>
+				// Para lançar a webapp, execute na consola, no diretório do ficheiro Executar.js:
+			</code>
+			<code>
+				> node Executar.js
+			</code>
+			<p><a href="http://localhost:8888/imoapp.html">Visite a homepage</a> ou teste a app requisitando <a
+					href="chocolate.html">uma página não existente</a>.</p>
+		</article>
+		<article id="procura">
+			<header>
+				<h3>Procurar em coleções</h3>
+				<p>
+					Nesta versão da app, a GUI interage com um <span>"stub" da ImoApp</span> no navegador.
+					Um "stub" é um objeto que representa um serviço remoto (neste caso, a imoApp no servidor).
+					Invoca-lo-á enviando-o os critérios da procura, de forma serializada, e receberá uma resposta que, por
+					sua vez, deserializará.
+				</p>
+			</header>
+			<section id="botões">
+				<p>
+					Esta página vem com <span class="quadro">botões</span> que permitem rapidamente testar a app (dispensa de dever preencher um formulário).
+				</p>
+				<button id="inexistentes" value="Paris,100000,false">
+					Procurar <span class="quadro">imóveis que não existem</span> (> €100000 em Paris)<br />
+					<span class="info">&lt;button id="inexistentes" value="Paris,100000,false"></span>
+				</button>
+				<button id="cidade" value="Lisboa,,">
+					Procurar imóveis em Lisboa<br />
+					<span class="info">&lt;button id="cidade" value="Lisboa,,"></span>
+				</button>
+				<button id="valorMáximo" value=",100000,">
+					Procurar imóveis &lt; €100.000<br />
+					<span class="info">&lt;button id="valorMáximo" value=",100000,"></span>
+				</button>
+				<button id="cidadeValorMínimo" value="Porto,100000,false">
+					Procurar imóveis no Porto e > €100.000<br />
+					<span class="info">&lt;button id="cidade" value="Porto,100000,false"></span>
+				</button>
+			</section>
+			<section id="consola">
+				<p>
+					Além de usar esta GUI, pode ainda interagir com a imoApp <span class="quadro">na consola</span> do navegador.
+					Para tornar isso possível, ao carregar a página "window.imoApp" e "window.Predicado" são configurados,
+					e poderão ser utilizados na consola do navegador.
+				</p>
+				<div class="copiável">
+					<code>// Para utilizar a imoApp na consola do navegador, p.ex. executar:</code>
+					<code>await imoApp.procurar(new Predicado(["Lisboa", 100000, true]))</code>
+					<code>await imoApp.procurar(new Predicado(["Porto", 100000, false]))</code>
+				</div>
+			</section>
+		</article>
+		<article id="resultados">
+			<header>
+				<h3>Imóveis encontrados</h3>
+			</header>
+			<table>
+				<thead>
+				<th>Cidade</th>
+				<th>Coordenadas</th>
+				<th>€</th>
+				</thead>
+				<tbody id="imóveis"></tbody>
+				<!-- resultados -->
+			</table>
+		</article>
+
+		<article id="tópicos">
+			<header>
+				<h3>Novos conceitos, palavras chave, síntaxe e/ou APIs de JavaScript abordados/introduzidos <span class="quadro">neste exemplo</span></h3>
+			</header>
+			<section id="conceitos">
+				<p>Conceitos</p>
+				<ul>
+					<li>"Business Errors" ("non runtime or library errors", mas Erros definidos pela app)</li>
+					<li>Serialização de erros</li>
+					<li>"Tagged templates" (funções de criação de strings, semelhante a "template strings")</li>
+				</ul>
+			</section>
+			<section id="APIs">
+				<p>APIs ("Application Programming Interface") </p>
+				<ul>
+					<li>Error</li>
+				</ul>
+			</section>
+			<section id="palavras">
+				<p>Palavras chave</p>
+				<ul>
+					<li>throw</li>
+				</ul>
+			</section>
+			<section id="síntaxe">
+				<p>Síntaxe</p>
+				<ul>
+					<li><span class="keyword">throw new</span> Error()</li>
+					<li>nomeDaFunção&DiacriticalGrave;&DiacriticalGrave; (na criação de funções "template")
+				</ul>
+			</section>
+		</article>
+
+	</body>
+</html>
